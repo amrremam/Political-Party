@@ -10,10 +10,8 @@ Follow these steps to set up and run the project:
    ```bash
    virtualenv appName
    
-   ```bash
    cd appName
    
-   ```bash
    source ./scripts/activate
 
 2. Install Django:
