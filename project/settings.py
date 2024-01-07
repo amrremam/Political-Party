@@ -15,6 +15,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app',
+    'addUser',
     'chartjs',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -101,16 +102,12 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-# STATIC_URL = '/static/signin_assets/'
+STATIC_URL = '/static/signin_assets/'
 STATICFILES_DIRS = [
-    # Add your existing static directory
     os.path.join(BASE_DIR, 'static'),
-    # Add the subdirectory for the new sign-in page
     os.path.join(BASE_DIR, 'static/signin_assets'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
