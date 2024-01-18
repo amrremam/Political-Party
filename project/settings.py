@@ -78,10 +78,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project.wsgi.application'
 
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "railway",
+        "USER": "postgres",
+        "PASSWORD": "aBEE5dG6--bDeA-5b*5fCggDGCeDEb4d",
+        "HOST": "roundhouse.proxy.rlwy.net",
+        "PORT": "35352",
+    }
 }
+
 
 
 AUTH_PASSWORD_VALIDATORS = [
