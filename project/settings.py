@@ -12,7 +12,7 @@ DEBUG = config('DEBUG')
 
 
 ALLOWED_HOSTS = ['127.0.0.1', '.localhost', 'test2.up.railway.app']
-
+CSRF_TRUSTED_ORIGINS = ['https://test2.up.railway.app']
 
 INSTALLED_APPS = [
     'app',
