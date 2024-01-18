@@ -51,6 +51,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:9000"
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'project.urls'
 
