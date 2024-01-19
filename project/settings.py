@@ -14,10 +14,12 @@ DEBUG = config('DEBUG')
 ALLOWED_HOSTS = ['127.0.0.1', '.localhost', 'test2.up.railway.app']
 CSRF_TRUSTED_ORIGINS = ['https://test2.up.railway.app']
 
+
 INSTALLED_APPS = [
     'app',
     'addUser',
-    'chartjs',
+    'security',
+    'guest',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,7 +29,6 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-# LOGIN_URL = 'login'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -90,7 +91,6 @@ DATABASES = {
 }
 
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -106,13 +106,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
@@ -121,8 +120,10 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/static_file/img')
 MEDIA_URL = '/media/'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 login_redirect_url = '/'

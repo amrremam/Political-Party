@@ -2,33 +2,512 @@
 {% load static %}
 
 {% block body %}
+    
+    
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap JS and jQuery (required for Bootstrap features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        #MenuHeading{
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #FormDiv{
+            background-color: gainsboro;
+            padding-top: 40px;
+        }
+    </style>
+</head>
 
-<div class="container mt-5">
-  <h2>Add User</h2>
-  <form method="post" action="{% url 'add_user' %}" enctype="multipart/form-data">
-    {% csrf_token %}
 
-    <!-- Name Field -->
-    <div class="mb-3">
-      <label for="name" class="form-label">Name:</label>
-      <input type="text" class="form-control" id="name" name="name" required>
+<body>
+    <div class="container">
+        <h2>اضافة عضو</h2>
+        <form method="post" action="{% url 'add_user' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+        <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+            <li class="nav-item waves-effect waves-light">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                    <h4 class="MenuHeading">العنوان تفصيلياً</h4>
+                </a>
+            </li>
+            <li class="nav-item waves-effect waves-light">
+                <a class="nav-link" id="Personal-tab" data-toggle="tab" href="#Personal" role="tab" aria-controls="Personal" aria-selected="false">
+                    <h4 class="MenuHeading">البيانات الشخصية</h4>
+                  </a>
+            </li>
+            <li class="nav-item waves-effect waves-light">
+                <a class="nav-link" id="Political-tab" data-toggle="tab" href="#Political" role="tab" aria-controls="Political" aria-selected="false">
+                    <h4 class="MenuHeading">الموقف السياسي السابق</h4>
+                </a>
+            </li>
+            <li class="nav-item waves-effect waves-light">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">
+                  <h4 class="MenuHeading">الموقع التنظيمي الحالي داخل الحزب</h4>
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="container rounded-lg FormDiv">
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">الأمانة النوعية</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>عام</option>
+                                <option>التنظيم</option>
+                                <option>التخطيط و المتابعة</option>
+                                <option>العضوية</option>
+                                <option>الصندوق</option>
+                                <option>الإعلام</option>
+                                <option>المراسم</option>
+                                <option>الشباب</option>
+                                <option>المرأة</option>
+                                <option>العلاقات العامة</option>
+                                <option>التعليم</option>
+                                <option>الثقافة و الفنون</option>
+                                <option>العمال</option>
+                                <option>الفلاحين</option>
+                                <option>شئون المهنيين</option>
+                                <option>التدريب و التثقيف</option>
+                                <option>التنمية البشرية</option>
+                                <option>البحث العلمي و الإختراع</option>
+                                <option>الصناعةالإتصالات و تكنولوجيا المعلومات</option>
+                                <option>الشئون السياسية</option>
+                                <option>الشئون القانونية</option>
+                                <option>الشئون الصحية</option>
+                                <option>الشئون الدينية</option>
+                                <option>الشئون الرياضية</option>
+                                <option>الشئون الإقتصادية</option>
+                                <option>الشئون السياحية</option>
+                                <option>شئون البيئة</option>
+                                <option>العلاقات الخارجية</option>
+                                <option>النقل و المواصلات</option>
+                                <option>التضامن الإجتماعي</option>
+                                <option>المجالس المحلية و النيابية</option>
+                                <option>حقوق الإنسان</option>
+                                <option>اللجان النوعية المتخصصة</option>
+                                <option>التواصل الشعبي و الجماهيري</option>
+                                <option>تنمية الموارد</option>
+                                <option>المواطنة</option>
+                                <option>شئون المصريين بالخارج</option>
+                                <option>متحدي الإعاقة</option>
+                                <option>إدارة الأزمات و الكوارث</option>
+                                <option>القبائل و العائلات المصرية</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">الصفة الحزبية</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>أمين</option>
+                                <option>مساعد أمين</option>
+                                <option>مساعد أمين عام</option>
+                                <option>أمين قطاع</option>
+                                <option>مساعد أمين قطاع</option>
+                                <option>أمين قسم</option>
+                                <option>مساعد أمين قسم</option>
+                                <option>مستشار أمين عام</option>
+                                <option>رئيس</option>
+                                <option>عضو هيئة مكتب</option>
+                                <option>مدير إداري</option>
+                                <option>مدير مكتب</option>
+                                <option>سكرتير</option>
+                                <option>خدمات عامة</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">أمانة قسم</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>شبرا</option>
+                                <option>الزيتون</option>
+                                <option>حدائق القبة</option>
+                                <option>الزاوية الحمراء</option>
+                                <option>الشرابية</option>
+                                <option>روض الفرج</option>
+                                <option>الساحل</option>
+                                <option>الأميرية</option>
+                                <option>مصر الجديدة</option>
+                                <option>مدينة نصر</option>
+                                <option>التجمع الخامس</option>
+                                <option>التجمع الأول</option>
+                                <option>التجمع الثالث</option>
+                                <option>النزهة</option>
+                                <option>السلام</option>
+                                <option>عين شمس</option>
+                                <option>المطرية</option>
+                                <option>المرج</option>
+                                <option>الوايلي</option>
+                                <option>باب الشعرية</option>
+                                <option>الموسكي</option>
+                                <option>الأزبكية</option>
+                                <option>الزمالك</option>
+                                <option>قصر النيل</option>
+                                <option>الدرب الأحمر</option>
+                                <option>بولاق</option>
+                                <option>منشية ناصر</option>
+                                <option>عابدين</option>
+                                <option>السيدة زينب</option>
+                                <option>الخليفة</option>
+                                <option>مصر القديمة</option>
+                                <option>المقطم</option>
+                                <option>المعادي</option>
+                                <option>البساتين</option>
+                                <option>دار السلام</option>
+                                <option>طرة</option>
+                                <option>حلوان</option>
+                                <option>التبين</option>
+                                <option>15 مايو</option>
+                                <option>المعصرة</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">أمانة شياخة</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">أمانة القاهرة</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>القاهرة</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">أمانة قطاع</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>شمال</option>
+                                <option>جنوب</option>
+                                <option>شرق</option>
+                                <option>غرب و وسط</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">تم إنضمام العضو بترشيح من</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">لجنة متخصصة</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>لجنة الطاقة</option>
+                                <option>لجنة الصحة و التعليم الطبي المستمر</option>
+                                <option>لجنة التجارة و الصناعة</option>
+                                <option>لجنة تنمية المجتمع و العمل الأهلي</option>
+                                <option>لجنة المشروعات و الإستثمار</option>
+                                <option>لجنة الزراعة و البحوث الزراعية</option>
+                                <option>لجنة الإسكان</option>
+                                <option>لجنة التنمية الإدارية</option>
+                                <option>لجنة الثقافة و الفنون</option>
+                                <option>لجنة البحث العلمي و الإبتكار</option>
+                                <option>لجنة تكنولوجيا المعلومات و الإتصالات و علوم الفضاء</option>
+                                <option>لجنة النقل و المواصلات</option>
+                                <option>لجنة التنسيق و المتابعة</option>
+                                <option>لجنة التطوير</option>
+                                <option>الطيران المدني</option>
+                                <option>حقوق الإنسان</option>
+                                <option>لجنة متابعة المشروعات الطبية</option>
+                                <option>لجنة التنمية و التواصل مع المستثمرين</option>
+                                <option>لجنة التحول الرقمي</option>
+                                <option>لجنة المصالحات</option>
+                                <option>لجنة التنمية و التمكين الإقتصادي و خلق فرص عمل</option>
+                                <option>لجنة التعليم العالي</option>
+                                <option>لجنة الإتصال السياسي و العلاقات الحكومية</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            
+{#--------------------------------------------------P2------------------------------------------------------------#}
+            
+            <div class="tab-pane fade" id="Political" role="tabpanel" aria-labelledby="Political-tab">
+                <div class="container rounded-lg FormDiv">
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">حزب سياسي سبق الإنتماء له</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>مستقبل وطن</option>
+                                <option>الوفد</option>
+                                <option>الشعب الجمهوري</option>
+                                <option>مصر الحديثة</option>
+                                <option>المؤتمر</option>
+                                <option>مصر أكتوبر</option>
+                                <option>المصريين الأحرار</option>
+                                <option>العدل</option>
+                                <option>الغد</option>
+                                <option>صوت الشعب</option>
+                                <option>مصر القوية</option>
+                                <option>الدستور</option>
+                                <option>الإصلاح و النهضة</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">المناصب العامة أو التطوعية حالياً أو سابقاً</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">سنة دورة عضوية المجلس</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">عضوية سابقة في أحد المجالس المحلية أو النيابية</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+{#-------------------------------------------------------p2 ended-----------------------------------------------  #}
+            
+            
+            <div class="tab-pane fade" id="Personal" role="tabpanel" aria-labelledby="Personal-tab">
+                <div class="container rounded-lg FormDiv">
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">الصورة الشخصية للعضو</label>
+                            <input type="file" class="form-control" id="customFile"/>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">اسم السيد عضو الحزب</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">نوع العضوية</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>عضو تنظيمي</option>
+                                <option>عضو عام</option>
+                                <option>طالب</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">اسم الشهرة إن وجد</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-12">
+                            <label for="field1">الرقم القومي</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-3">
+                            <label for="field1">العمر الحالي</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="field1">سنة الميلاد</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="field1">شهر</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        
+                        <div class="col-lg-3">
+                            <label for="field1">يوم</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">المؤهل الدراسي</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">الصفة المهنية</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>مهندس</option>
+                                <option>دكتور</option>
+                                <option>محاسب</option>
+                                <option>أستاذ جامعي</option>
+                                <option>مدرس</option>
+                                <option>مدرب</option>
+                                <option>صحفي</option>
+                                <option>ضابط جيش</option>
+                                <option>ضابط شرطة</option>
+                                <option>أستاذ</option>
+                                <option>محامي</option>
+                                <option>مستشار قضائي</option>
+                                <option>وكيل نيابة</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">المؤهل الدراسي</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">العضو تابع لنقابة</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>المهندسين</option>
+                                <option>المحامين</option>
+                                <option>الأطباء البشريين</option>
+                                <option>المهن الفنية التطبيقية</option>
+                                <option>المهن الموسيقية</option>
+                                <option>المهن التمثيلية</option>
+                                <option>التجاريين</option>
+                                <option>الصيادلة</option>
+                                <option>الزراعيين</option>
+                                <option>المعلمين</option>
+                                <option>السينمائيين</option>
+                                <option>العلميين</option>
+                                <option>العلاج الطبيعي</option>
+                                <option>الرياضيين</option>
+                                <option>الإعلاميين</option>
+                                <option>التمريض</option>
+                                <option>المرشدين السياحيين</option>
+                                <option>محفظي القرآن الكريم</option>
+                                <option>مستخلصي الجمارك</option>
+                                <option>المترجمين</option>
+                                <option>الأئمة و الدعاة</option>
+                                <option>الأثريين</option>
+                                <option>الجغرافيين المصرية</option>
+                                <option>الطيارين المدنيين</option>
+                                <option>العمال</option>
+                                <option>أطباء الأسنان</option>
+                                <option>الأطباء البيطريين</option>
+                                <option>الفنانين التشكيليين</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">قطاع العمل</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>العقارات</option>
+                                <option>الإتصالات</option>
+                                <option>البترول</option>
+                                <option>هيئات حكومية</option>
+                                <option>الشرطة</option>
+                                <option>الجيش</option>
+                                <option>القضاء</option>
+                                <option>شركات دولية</option>
+                                <option>الدعاية و الإعلام</option>
+                                <option>البنوك</option>
+                                <option>السياحة</option>
+                                <option>الطيران</option>
+                                <option>الأطباء</option>
+                                <option>أعمال حرة</option>
+                                <option>الإستشارات</option>
+                                <option>المستشفيات</option>
+                                <option>أخرى</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">الوظيفة الحالية</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">                            
+                            <label for="field1">قطاع العمل</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">الحالة الإجتماعية</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>متزوج</option>
+                                <option>أرمل</option>
+                                <option>أعزب</option>
+                                <option>مطلق</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-4">
+                            <label for="field1">تليفون محمول رقم 2</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="field1">تليفون محمول رقم 1</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-4">                            
+                            <label for="field1">تليفون أرضي</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-12">                            
+                            <label for="field1">البريد الإليكتروني</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+{#------------------------------------------------P3--------------------------------------------------------#}
+            
+            
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="container rounded-lg FormDiv">
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">رقم المبنى</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">اسم الشارع</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">اسم المنطقة</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">اسم الحي</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="field1">قسم</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="field1">قطاع</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-12">
+                            <label for="field1">محافظة</label>
+                            <input type="text" class="form-control" id="field1" name="field1">
+                        </div>
+                    </div>
+                </div>
+            </div>       
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="margin-top: 5%; background-color: black; width: 40%; border-radius: 20px; font-size: 20px;">احفظ</button>
+            </div>
+        </div>
+        </form>
     </div>
+</body>
+</html>
 
-    <!-- Country Field -->
-    <div class="mb-3">
-      <label for="country" class="form-label">Country:</label>
-      <input type="text" class="form-control" id="country" name="country" required>
-    </div>
-
-    <!-- Phone Number Field -->
-    <div class="mb-3">
-      <label for="phone" class="form-label">Phone Number:</label>
-      <input type="tel" class="form-control" id="phone" name="phone" required>
-    </div>
-
-    <!-- Submit Button -->
-    <button type="submit" class="btn btn-primary">Add User</button>
-  </form>
-</div>
-
+    
 {% endblock body %}
