@@ -6,7 +6,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app.urls')),
+    path('dash/', include('app.urls')),
+    path('', include('addUser.urls')),
 ]
 
 

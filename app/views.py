@@ -32,7 +32,7 @@ def index(request):
 # - Roles
 @login_required(login_url='login/')
 def roles(request):
-    return render(request, 'user/leo.html')
+    return render(request, 'user/roles.html')
 
 
 # - Tables

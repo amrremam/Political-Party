@@ -1,19 +1,23 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
 from .models import Member
 
 
+class AddUser(View):
+    template_name = 'users/add_user.html'
 
-def add_user(request):
-    if request.method == 'POST':
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
         name = request.POST.get('name')
-        lname = request.POST.get('lname')
-        age = request.POST.get('age')
+        country = request.POST.get('country')
+        phone = request.POST.get('phone')
 
-        new_member = Member.objects.create(name=name, lname=lname, age=age)
-        
-        return render(request, 'dashboard.html', {'user': new_member})
-    
-    return render(request, 'dashboard.html')
+        user = Member(name=name, country=country, phone=phone)
+        user.save()
+
+        return redirect('app:dashboard')
 
 
 def edit_user(request, user_id):
@@ -28,7 +32,6 @@ def edit_user(request, user_id):
         return render(request, 'test.html', {'user': user})
 
     return render(request, 'test.html', {'user': user})
-
 
 
 def delete_user(request, user_id):
