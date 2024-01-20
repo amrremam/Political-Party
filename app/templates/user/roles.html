@@ -60,8 +60,8 @@
                 <div class="container rounded-lg FormDiv">
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">الأمانة النوعية</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="amana">الامانة النوعية</label>
+                            <select class="form-control" id="amana" name="amana">
                                 <option>عام</option>
                                 <option>التنظيم</option>
                                 <option>التخطيط و المتابعة</option>
@@ -104,9 +104,10 @@
                                 <option>القبائل و العائلات المصرية</option>
                             </select>
                         </div>
+                        
                         <div class="col-lg-6">
-                            <label for="field1">الصفة الحزبية</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="partyde">التفاصيل</label>
+                            <select class="form-control" id="partyde" name="partyde">
                                 <option>أمين</option>
                                 <option>مساعد أمين</option>
                                 <option>مساعد أمين عام</option>
@@ -123,11 +124,10 @@
                                 <option>خدمات عامة</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="row d-flex justify-content-center text-center">
+                        
                         <div class="col-lg-6">
-                            <label for="field1">أمانة قسم</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="amanaQism">أمانة قسم</label>
+                            <select class="form-control" id="amanaQism" name="amanaQism">
                                 <option>شبرا</option>
                                 <option>الزيتون</option>
                                 <option>حدائق القبة</option>
@@ -171,20 +171,21 @@
                             </select>
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">أمانة شياخة</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="amanaSheyakha">أمانة شياخة</label>
+                            <input type="text" class="form-control" id="amanaSheyakha" name="amanaSheyakha">
                         </div>
                     </div>
+                    
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">أمانة القاهرة</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="amanaCairo">أمانة القاهرة</label>
+                            <select class="form-control" id="amanaCairo" name="amanaCairo">
                                 <option>القاهرة</option>
                             </select>
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">أمانة قطاع</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="amanaKetaa">أمانة قطاع</label>
+                            <select class="form-control" id="amanaKetaa" name="amanaKetaa">
                                 <option>شمال</option>
                                 <option>جنوب</option>
                                 <option>شرق</option>
@@ -195,12 +196,12 @@
                     
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">تم إنضمام العضو بترشيح من</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="Taam">تم إنضمام العضو بترشيح من</label>
+                            <input type="text" class="form-control" id="Taam" name="Taam">
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">لجنة متخصصة</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="specificLagna">لجنة متخصصة</label>
+                            <select class="form-control" id="specificLagna" name="specificLagna">
                                 <option>لجنة الطاقة</option>
                                 <option>لجنة الصحة و التعليم الطبي المستمر</option>
                                 <option>لجنة التجارة و الصناعة</option>
@@ -227,17 +228,15 @@
                             </select>
                         </div>
                     </div>
-                </div>    
+                </div>
             </div>
-            
-{#--------------------------------------------------P2------------------------------------------------------------#}
             
             <div class="tab-pane fade" id="Political" role="tabpanel" aria-labelledby="Political-tab">
                 <div class="container rounded-lg FormDiv">
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">حزب سياسي سبق الإنتماء له</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="pastParty">حزب سياسي سبق الإنتماء له</label>
+                            <select class="form-control" id="pastParty" name="pastParty">
                                 <option>مستقبل وطن</option>
                                 <option>الوفد</option>
                                 <option>الشعب الجمهوري</option>
@@ -254,87 +253,84 @@
                             </select>
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">المناصب العامة أو التطوعية حالياً أو سابقاً</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="manasebAamma">المناصب العامة أو التطوعية حالياً أو سابقاً</label>
+                            <input type="text" class="form-control" id="manasebAamma" name="manasebAamma">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">سنة دورة عضوية المجلس</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="sanaDawra">سنة دورة عضوية المجلس</label>
+                            <input type="text" class="form-control" id="sanaDawra" name="sanaDawra">
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">عضوية سابقة في أحد المجالس المحلية أو النيابية</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="odwyaSabka">عضوية سابقة في أحد المجالس المحلية أو النيابية</label>
+                            <input type="text" class="form-control" id="odwyaSabka" name="odwyaSabka">
                         </div>
                     </div>
                 </div>
             </div>
             
             
-{#-------------------------------------------------------p2 ended-----------------------------------------------  #}
-            
-            
             <div class="tab-pane fade" id="Personal" role="tabpanel" aria-labelledby="Personal-tab">
                 <div class="container rounded-lg FormDiv">
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">الصورة الشخصية للعضو</label>
-                            <input type="file" class="form-control" id="customFile"/>
+                            <label for="userImg">الصورة الشخصية للعضو</label>
+                            <input type="file" class="form-control" id="userImg" name="userImg"/>
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">اسم السيد عضو الحزب</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="presidentPartyName">اسم السيد عضو الحزب</label>
+                            <input type="text" class="form-control" id="presidentPartyName" name="presidentPartyName">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">نوع العضوية</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="noaaelAdwiaa">نوع العضوية</label>
+                            <select class="form-control" id="noaaelAdwiaa" name="noaaelAdwiaa">
                                 <option>عضو تنظيمي</option>
                                 <option>عضو عام</option>
                                 <option>طالب</option>
                             </select>
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">اسم الشهرة إن وجد</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="famousName">اسم الشهرة إن وجد</label>
+                            <input type="text" class="form-control" id="famousName" name="famousName">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-12">
-                            <label for="field1">الرقم القومي</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="NationalId">الرقم القومي</label>
+                            <input type="text" class="form-control" id="NationalId" name="NationalId">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-3">
-                            <label for="field1">العمر الحالي</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="age">العمر الحالي</label>
+                            <input type="text" class="form-control" id="age" name="age">
                         </div>
                         <div class="col-lg-3">
-                            <label for="field1">سنة الميلاد</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="yearBirth">سنة الميلاد</label>
+                            <input type="text" class="form-control" id="yearBirth" name="yearBirth">
                         </div>
 
                         <div class="col-lg-3">
-                            <label for="field1">شهر</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="monthBirth">شهر</label>
+                            <input type="text" class="form-control" id="monthBirth" name="monthBirth">
                         </div>
                         
                         <div class="col-lg-3">
-                            <label for="field1">يوم</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="dayBirth">يوم</label>
+                            <input type="text" class="form-control" id="dayBirth" name="dayBirth">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">المؤهل الدراسي</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="education">المؤهل الدراسي</label>
+                            <input type="text" class="form-control" id="education" name="education">
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">الصفة المهنية</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="workProfession">الصفة المهنية</label>
+                            <select class="form-control" id="workProfession" name="workProfession">
                                 <option>مهندس</option>
                                 <option>دكتور</option>
                                 <option>محاسب</option>
@@ -353,12 +349,8 @@
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">المؤهل الدراسي</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="field1">العضو تابع لنقابة</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="nekaba">العضو تابع لنقابة</label>
+                            <select class="form-control" id="nekaba" name="nekaba">
                                 <option>المهندسين</option>
                                 <option>المحامين</option>
                                 <option>الأطباء البشريين</option>
@@ -392,8 +384,8 @@
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">قطاع العمل</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="ketaaAamel">قطاع العمل</label>
+                            <select class="form-control" id="ketaaAamel" name="ketaaAamel">
                                 <option>العقارات</option>
                                 <option>الإتصالات</option>
                                 <option>البترول</option>
@@ -414,18 +406,14 @@
                             </select>
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">الوظيفة الحالية</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="currentlyWorkProfession">الوظيفة الحالية</label>
+                            <input type="text" class="form-control" id="currentlyWorkProfession" name="currentlyWorkProfession">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
-                        <div class="col-lg-6">                            
-                            <label for="field1">قطاع العمل</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
-                        </div>
                         <div class="col-lg-6">
-                            <label for="field1">الحالة الإجتماعية</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="martialStatus">الحالة الإجتماعية</label>
+                            <select class="form-control" id="martialStatus" name="martialStatus">
                                 <option>متزوج</option>
                                 <option>أرمل</option>
                                 <option>أعزب</option>
@@ -435,71 +423,69 @@
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-4">
-                            <label for="field1">تليفون محمول رقم 2</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="mobileOne">تليفون محمول رقم 2</label>
+                            <input type="text" class="form-control" id="mobileOne" name="mobileOne">
                         </div>
                         <div class="col-lg-4">
-                            <label for="field1">تليفون محمول رقم 1</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="mobileTwo">تليفون محمول رقم 1</label>
+                            <input type="text" class="form-control" id="mobileTwo" name="mobileTwo">
                         </div>
                         <div class="col-lg-4">                            
-                            <label for="field1">تليفون أرضي</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="landline">تليفون أرضي</label>
+                            <input type="text" class="form-control" id="landline" name="landline">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-12">                            
-                            <label for="field1">البريد الإليكتروني</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="email">البريد الإليكتروني</label>
+                            <input type="text" class="form-control" id="email" name="email">
                         </div>
                     </div>
                 </div>
             </div>
             
             
-{#------------------------------------------------P3--------------------------------------------------------#}
-            
-            
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="container rounded-lg FormDiv">
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">رقم المبنى</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="rakmElmabna">رقم المبنى</label>
+                            <input type="text" class="form-control" id="rakmElmabna" name="rakmElmabna">
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">اسم الشارع</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center text-center">
-                        <div class="col-lg-6">
-                            <label for="field1">اسم المنطقة</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="field1">اسم الحي</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="street">اسم الشارع</label>
+                            <input type="text" class="form-control" id="street" name="street">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-6">
-                            <label for="field1">قسم</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="district">اسم المنطقة</label>
+                            <input type="text" class="form-control" id="district" name="district">
                         </div>
                         <div class="col-lg-6">
-                            <label for="field1">قطاع</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="city">اسم الحي</label>
+                            <input type="text" class="form-control" id="city" name="city">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <label for="qism">قسم</label>
+                            <input type="text" class="form-control" id="qism" name="qism">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="ketaa">قطاع</label>
+                            <input type="text" class="form-control" id="ketaa" name="ketaa">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-12">
-                            <label for="field1">محافظة</label>
-                            <input type="text" class="form-control" id="field1" name="field1">
+                            <label for="mohafza">محافظة</label>
+                            <input type="text" class="form-control" id="mohafza" name="mohafza">
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div> 
+
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" style="margin-top: 5%; background-color: black; width: 40%; border-radius: 20px; font-size: 20px;">احفظ</button>
             </div>
