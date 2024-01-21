@@ -1,3 +1,26 @@
+{#{% extends 'base.html' %}#}
+{#{% load static %}#}
+{##}
+{##}
+{#{% block body %}#}
+{#  <h2>User List</h2>#}
+{#    {{users}}#}
+{#  <ul>#}
+{#    {% for user in users %}#}
+{#      <li>{{ user.amana }} - {{ user.partyde }} - ... </li>#}
+{#    {% endfor %}#}
+{#  </ul>#}
+{#{% endblock body %}#}
+
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+    
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -7,7 +30,7 @@
     <!-- Add these lines in the head of your HTML file -->
     <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script src="https://cdn.rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-    
+
 
     <style>
         body {
@@ -115,34 +138,21 @@
         </tr>
     </thead>
     <tbody>
-        <!-- Dummy data rows -->
-        <tr>
-            <td><input type="checkbox"></td>
-            <td>1</td>
-            <td>جون دو</td>
-            <td>john@example.com</td>
-            <td>مستخدم</td>
-            <td>نشط</td>
-            <td>2022-01-01</td>
-            <td>
-                <button class="edit-btn">تحرير</button>
-                <button class="delete-btn">حذف</button>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="checkbox"></td>
-            <td>2</td>
-            <td>جين سميث</td>
-            <td>jane@example.com</td>
-            <td>مشرف</td>
-            <td>غير نشط</td>
-            <td>2022-02-01</td>
-            <td>
-                <button class="edit-btn">تحرير</button>
-                <button class="delete-btn">حذف</button>
-            </td>
-        </tr>
-        <!-- Add more dummy data rows as needed -->
+        {% for user in users %}
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.partyde }}</td>
+                <td>{{ user.status }}</td>
+                <td>{{ user.created_at }}</td>
+                <td>
+                    <button class="edit-btn">تحرير</button>
+                    <button class="delete-btn">حذف</button>
+                </td>
+            </tr>
+        {% endfor %}
     </tbody>
 </table>
 
@@ -210,3 +220,5 @@
 
 </body>
 </html>
+
+{% endblock body %}

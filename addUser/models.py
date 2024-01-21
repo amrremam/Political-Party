@@ -14,6 +14,7 @@ class Member(models.Model):
     manasebAamma = models.CharField(max_length=300, null=True)
     sanaDawra = models.CharField(max_length=300, null=True)
     odwyaSabka = models.CharField(max_length=300, null=True)
+    name = models.CharField(max_length=100)
     userImg = models.ImageField(upload_to='', null=True, blank=True)
     presidentPartyName = models.CharField(max_length=300, null=True)
     noaaelAdwiaa = models.CharField(max_length=300, null=True)

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Member
+from django.db import connection
 
 
 class AddUser(View):
@@ -23,6 +24,7 @@ class AddUser(View):
         manasebAamma = request.POST.get('manasebAamma')
         sanaDawra = request.POST.get('sanaDawra')
         odwyaSabka = request.POST.get('odwyaSabka')
+        name = request.POST.get('name')
         userImg = request.POST.get('userImg')
         presidentPartyName = request.POST.get('presidentPartyName')
         noaaelAdwiaa = request.POST.get('noaaelAdwiaa')
@@ -46,7 +48,6 @@ class AddUser(View):
         street = request.POST.get('street')
         district = request.POST.get('district')
         city = request.POST.get('city')
-        # state = request.POST.get('state')
         qism = request.POST.get('qism')
         ketaa = request.POST.get('ketaa')
         mohafza = request.POST.get('mohafza')
@@ -54,7 +55,7 @@ class AddUser(View):
         print(record)
 
         user = Member(
-            amana=amana, partyde=partyde, amanaQism=amanaQism,
+            name=name, amana=amana, partyde=partyde, amanaQism=amanaQism,
             amanaSheyakha=amanaSheyakha, amanaCairo=amanaCairo, amanaKetaa=amanaKetaa,
             Taam=Taam, specificLagna=specificLagna, pastParty=pastParty, manasebAamma=manasebAamma,
             sanaDawra=sanaDawra, odwyaSabka=odwyaSabka, userImg=userImg, presidentPartyName=presidentPartyName,
@@ -68,3 +69,13 @@ class AddUser(View):
         user.save()
 
         return redirect('app:dashboard')
+
+
+class UserList(View):
+    template_name = 'user/Table.html'
+
+    def get(self, request, *args, **kwargs):
+        users = Member.objects.all()
+        print(users)
+        context = {'users': users}
+        return render(request, self.template_name, context)

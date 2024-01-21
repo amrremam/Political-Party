@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3da5179-36aa-4085-b181-a35cd1993799" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2a3e8cb6-8ec5-4ec4-8d10-27880f6a7117.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2a3e8cb6-8ec5-4ec4-8d10-27880f6a7117.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addUser/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addUser/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addUser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/user/addDor.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/addDor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/user/roles.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/roles.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Table .html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/Table.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +72,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\DJP\Political\src\app\templates\user" />
       <recent name="C:\DJP\Political\src\templates" />
     </key>
   </component>
@@ -117,7 +124,7 @@
       <workItem from="1705679136680" duration="8680000" />
       <workItem from="1705758404837" duration="17526000" />
       <workItem from="1705792852776" duration="5640000" />
-      <workItem from="1705849701186" duration="3515000" />
+      <workItem from="1705849701186" duration="9319000" />
     </task>
     <servers />
   </component>

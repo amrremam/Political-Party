@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import login_view, index, roles, tables, new_user, ozanat
+from .views import login_view, index, roles, tables, new_user, ozanat, addDor, table
 
 app_name = 'app'
 
@@ -16,4 +16,10 @@ urlpatterns = [
     path('newUser/', new_user, name='newUser'),
 
     path('ozanat/', ozanat, name='ozanat'),
+
+    path('addDor/', addDor, name='addDor'),
+
+    path('table/', table, name='table'),
+
+
 ]

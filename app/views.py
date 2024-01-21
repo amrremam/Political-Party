@@ -50,3 +50,13 @@ def new_user(request):
 @login_required(login_url='login/')
 def ozanat(request):
     return render(request, 'user/Ozanat.html')
+
+
+@login_required(login_url='login/')
+def addDor(request):
+    return render(request, 'user/addDor.html')
+
+
+@login_required(login_url='login/')
+def table(request):
+    return render(request, 'user/Table.html')
