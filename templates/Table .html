@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيانات الأعضاء</title>
+    <!-- Add these lines in the head of your HTML file -->
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="https://cdn.rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #000000;
+            font-weight: bold;
+            text-align: center; /* Center the title */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ffffff;
+        }
+
+        tr {
+            background-color: #ffffff;
+            border-bottom: 2px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .edit-btn, .delete-btn {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+            border-radius: 5px;
+        }
+
+        .edit-btn {
+            background-color: #28a745;
+            color: #ffffff;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: #ffffff;
+        }
+
+        .search-bar {
+            float: right;
+        }
+
+        .add-user-btn {
+            float: left;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .export-buttons {
+            float: left;
+            margin-top: 20px;
+        }
+
+        .export-btn {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body dir="rtl">
+
+<h1>بيانات الأعضاء</h1>
+
+<input type="text" class="search-bar" placeholder="البحث...">
+
+<button class="add-user-btn">إضافة مستخدم جديد <span>&plus;</span></button>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>الرقم التسلسلي</th>
+            <th>الاسم</th>
+            <th>البريد الإلكتروني</th>
+            <th>الدور</th>
+            <th>الحالة</th>
+            <th>تاريخ الإنشاء</th>
+            <th>الإجراءات</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Dummy data rows -->
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>1</td>
+            <td>جون دو</td>
+            <td>john@example.com</td>
+            <td>مستخدم</td>
+            <td>نشط</td>
+            <td>2022-01-01</td>
+            <td>
+                <button class="edit-btn">تحرير</button>
+                <button class="delete-btn">حذف</button>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>2</td>
+            <td>جين سميث</td>
+            <td>jane@example.com</td>
+            <td>مشرف</td>
+            <td>غير نشط</td>
+            <td>2022-02-01</td>
+            <td>
+                <button class="edit-btn">تحرير</button>
+                <button class="delete-btn">حذف</button>
+            </td>
+        </tr>
+        <!-- Add more dummy data rows as needed -->
+    </tbody>
+</table>
+
+<div class="export-buttons">
+    <button class="export-btn" onclick="printTable()">Print</button>
+    <button class="export-btn" onclick="exportToPdf()">PDF</button>
+    <button class="export-btn" onclick="exportToCsv()">CSV</button>
+    <button class="export-btn" onclick="copyTable()">COPY</button>
+    <button class="export-btn">رؤية الأعمدة</button>
+</div>
+
+<!-- Add this script in the body of your HTML file -->
+<script>
+    function printTable() {
+        window.print();
+    }
+
+    function exportToPdf() {
+        var element = document.getElementById('table-container');
+        html2pdf(element);
+    }
+
+    function exportToCsv() {
+        var csvContent = "data:text/csv;charset=utf-8,";
+        var rows = document.querySelectorAll('table tr');
+
+        rows.forEach(function(row) {
+            var rowData = [];
+            var cols = row.querySelectorAll('td, th');
+            cols.forEach(function(col) {
+                rowData.push(col.innerText);
+            });
+            csvContent += rowData.join(',') + '\n';
+        });
+
+        var encodedUri = encodeURI(csvContent);
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "table.csv");
+        document.body.appendChild(link);
+        link.click();
+    }
+
+    function copyTable() {
+        var table = document.getElementById('data-table');
+        var rows = table.querySelectorAll('tr');
+        var copiedText = '';
+
+        rows.forEach(function(row) {
+            var cols = row.querySelectorAll('td, th');
+            cols.forEach(function(col) {
+                copiedText += col.innerText + '\t'; // Use '\t' for tab-separated values
+            });
+            copiedText += '\n';
+        });
+
+        navigator.clipboard.writeText(copiedText).then(function() {
+            alert('Table copied to clipboard');
+        }).catch(function(err) {
+            console.error('Unable to copy text to clipboard', err);
+        });
+    }
+</script>
+
+
+</body>
+</html>

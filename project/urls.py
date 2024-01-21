@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
     path('', include('addUser.urls')),
+    path('guest/', include('guest.urls')),
 ]
 
 
