@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الإذنات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-+LrX3QFw8+czPDyIc7VxhVj8IeHJICcGrvBBOLkT2v2VuyfAyxmKhFI7lAfvJAslOs9G+5srZgXWcqorCRbLpQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #000000;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            margin-bottom: 30px;
+            border: 1px solid #ced4da; /* Lighter gray border */
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body dir="rtl">
+
+<h1>إنشاء إذنات</h1>
+
+<div class="container">
+    <label for="titles">لقب:</label>
+    <select id="titles" name="titles" class="js-example-basic-single">
+        <!-- Add your options here -->
+        <option value="option1">مدير</option>
+        <option value="option2">مستخدم</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <button onclick="submitForm()">إرسال</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3Oq1Fp1frpDmrQK3QgxJhYFAtJWXLdl1DEegpk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-ekhEl52P0N2XJSqfFCfWN7lF+cX/4bb2lM54+tGvVfnzBq8R3+e5awAViKc+7OSf7ce9JZyF/Oj/gZVj0E3avQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+
+    function submitForm() {
+        var selectedValue = $('#titles').val();
+        // Add your form submission logic here using selectedValue
+        alert('Selected value: ' + selectedValue);
+    }
+</script>
+
+</body>
+</html>
+
+{% endblock body %}

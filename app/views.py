@@ -39,3 +39,14 @@ def roles(request):
 @login_required(login_url='login/')
 def tables(request):
     return render(request, 'user/tables.html')
+
+
+# - newUser
+@login_required(login_url='login/')
+def new_user(request):
+    return render(request, 'user/NewUser.html')
+
+
+@login_required(login_url='login/')
+def ozanat(request):
+    return render(request, 'user/Ozanat.html')

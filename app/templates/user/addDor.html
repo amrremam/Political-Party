@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء دور</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Include Select2 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-+LrX3QFw8+czPDyIc7VxhVj8IeHJICcGrvBBOLkT2v2VuyfAyxmKhFI7lAfvJAslOs9G+5srZgXWcqorCRbLpQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #000000;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: right; /* Adjusted for RTL direction */
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da; /* Lighter gray border */
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 20px; /* Add margin to separate button from fields */
+        }
+    </style>
+</head>
+<body dir="rtl">
+
+<h1>إنشاء دور</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="title">لقب:</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div class="col-md-6">
+            <label for="permission">إذن:</label>
+            <select id="permission" name="permission" class="js-example-basic-single">
+                <!-- Add your options here -->
+                <option value="read">قراءة</option>
+                <option value="write">كتابة</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+    </div>
+    <div class="text-center">
+        <button onclick="submitForm()" class="btn btn-dark mx-auto">إرسال</button> <!-- Add 'mx-auto' class for horizontal centering -->
+    </div>
+    
+</div>
+
+<!-- Include jQuery, Popper.js, and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Include Select2 JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3Oq1Fp1frpDmrQK3QgxJhYFAtJWXLdl1DEegpk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-ekhEl52P0N2XJSqfFCfWN7lF+cX/4bb2lM54+tGvVfnzBq8R3+e5awAViKc+7OSf7ce9JZyF/Oj/gZVj0E3avQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+
+    function submitForm() {
+        var title = $('#title').val();
+        var permission = $('#permission').val();
+
+        // Add your form submission logic here using the form values
+        alert('لقب: ' + title + '\nإذن: ' + permission);
+    }
+</script>
+
+</body>
+</html>
