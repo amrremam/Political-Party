@@ -24,16 +24,24 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link rel="stylesheet" type="text/css" href="{% static 'static_file/css/material-dashboard.css' %}?v=1.0.7">
-
-
 </head>
+
+
+<style>
+    .hello-msg{
+        font-size: 20px;
+        color: #fff;
+        margin-right: 20px;
+    }
+</style>
+
 <body class="g-sidenav-show rtl bg-gray-200">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-end me-3 rotate-caret  bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute start-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" " target="_blank">
+      <a class="navbar-brand m-0" target="_blank">
         <img src="{% static 'img/logo-ct.png' %}" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="me-1 font-weight-bold text-white">{{ request.user.username }}</span>
+        <span class="hello-msg">{{request.user}}</span>
       </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
@@ -59,6 +67,15 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link " href="show_user/">
+            <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons-round opacity-10">person</i>
+            </div>
+            <span class="nav-link-text me-1">الاعضاء</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link " href="newUser/">
             <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
               <i class="material-icons-round opacity-10">receipt_long</i>
@@ -68,20 +85,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " href="ozanat/">
+          <a class="nav-link " href="permission/">
             <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
               <i class="material-icons-round opacity-10">view_in_ar</i>
             </div>
             <span class="nav-link-text me-1">الاذونات</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="user_list/">
-            <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons-round opacity-10">person</i>
-            </div>
-            <span class="nav-link-text me-1">الاعضاء</span>
           </a>
         </li>
 
@@ -93,34 +101,6 @@
             <span class="nav-link-text me-1">الادوار</span>
           </a>
         </li>
-
-{#        <li class="nav-item">#}
-{#          <a class="nav-link " href="/roles">#}
-{#            <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">#}
-{#              <i class="material-icons-round opacity-10">table_view</i>#}
-{#            </div>#}
-{#            <span class="nav-link-text me-1">العمليات</span>#}
-{#          </a>#}
-{#        </li>#}
-
-{#        <li class="nav-item">#}
-{#          <a class="nav-link " href="/tables">#}
-{#            <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">#}
-{#              <i class="material-icons-round opacity-10">table_view</i>#}
-{#            </div>#}
-{#            <span class="nav-link-text me-1">الاذونات</span>#}
-{#          </a>#}
-{#        </li>#}
-
-{#        <li class="nav-item">#}
-{#          <a class="nav-link " href="/roles">#}
-{#            <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">#}
-{#              <i class="material-icons-round opacity-10">table_view</i>#}
-{#            </div>#}
-{#            <span class="nav-link-text me-1">الشخصيات</span>#}
-{#          </a>#}
-{#        </li>#}
-
 
       </ul>
     </div>
@@ -145,7 +125,7 @@
             </div>
           </div>
             <li class="nav-item d-flex align-items-center">
-              <a href="/login" class="nav-link text-body font-weight-bold px-0">
+              <a href="{% url 'app:logout' %}" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">تسجيل الخروج</span>
               </a>

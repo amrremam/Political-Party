@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
+from django.contrib.auth.decorators import login_required
+
 from .models import Member
-from django.db import connection
+# from django.db import connection
 
 
 class AddUser(View):
@@ -71,11 +73,15 @@ class AddUser(View):
         return redirect('app:dashboard')
 
 
-class UserList(View):
-    template_name = 'user/Table.html'
 
-    def get(self, request, *args, **kwargs):
-        users = Member.objects.all()
-        print(users)
-        context = {'users': users}
-        return render(request, self.template_name, context)
+
+
+
+
+@login_required(login_url='app:login')
+def show_user(request, *args, **kwargs):
+    users = Member.objects.all()
+    print(users)
+    context = {'users': users}
+    return render(request, 'user/Table.html', context)
+

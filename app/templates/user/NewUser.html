@@ -68,39 +68,57 @@
 <body dir="rtl">
 
 <h1>إنشاء مستخدم</h1>
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <label for="name">اسم:</label>
+                {{form.username}}
+            </div>
+            
+            <div class="col-md-6">
+                <label for="email">بريد إلكتروني:</label>
+                <input type="email" id="email" name="email">
+            </div>
+        </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <label for="name">اسم:</label>
-            <input type="text" id="name" name="name">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <label for="password">كلمة السر:</label>
+                {{form.password1}}
+            </div>
+            
+            <div class="col-md-6">
+                <label for="password">تأكيد كلمة السر:</label>
+                {{form.password2}}
+            </div>
+            
+{#            <div class="col-md-6">#}
+{#                <label for="role">دور:</label>#}
+{#                <select id="role" name="role" class="js-example-basic-single">#}
+{#                    <!-- Add your options here -->#}
+{#                    <option value="admin">مدير</option>#}
+{#                    <option value="user">مستخدم</option>#}
+{#                    <!-- Add more options as needed -->#}
+{#                </select>#}
+{#            </div>#}
         </div>
-        <div class="col-md-6">
-            <label for="email">بريد إلكتروني:</label>
-            <input type="email" id="email" name="email">
+        
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark mx-auto">حفظ</button>
         </div>
     </div>
+</form>
+{{form.errors}}
 
-    <div class="row">
-        <div class="col-md-6">
-            <label for="password">كلمة السر:</label>
-            <input type="password" id="password" name="password">
-        </div>
-        <div class="col-md-6">
-            <label for="role">دور:</label>
-            <select id="role" name="role" class="js-example-basic-single">
-                <!-- Add your options here -->
-                <option value="admin">مدير</option>
-                <option value="user">مستخدم</option>
-                <!-- Add more options as needed -->
-            </select>
-        </div>
-    </div>
-    <div class="text-center">
-        <button onclick="submitForm()" class="btn btn-dark mx-auto" >إرسال</button>
-    </div>
-    
-</div>
+{% for msg in messages %}
+    <p>{{msg}}</p>
+{% endfor %}
+
+
 
 <!-- Include jQuery, Popper.js, and Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -110,21 +128,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3Oq1Fp1frpDmrQK3QgxJhYFAtJWXLdl1DEegpk=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-ekhEl52P0N2XJSqfFCfWN7lF+cX/4bb2lM54+tGvVfnzBq8R3+e5awAViKc+7OSf7ce9JZyF/Oj/gZVj0E3avQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-single').select2();
-    });
-
-    function submitForm() {
-        var name = $('#name').val();
-        var email = $('#email').val();
-        var password = $('#password').val();
-        var role = $('#role').val();
-
-        // Add your form submission logic here using the form values
-        alert('Name: ' + name + '\nEmail: ' + email + '\nPassword: ' + password + '\nRole: ' + role);
-    }
-</script>
 
 </body>
 </html>

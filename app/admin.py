@@ -1,5 +1,4 @@
 from django.contrib import admin
-from . models import District
-# Register your models here.
+from django.contrib.auth.admin import UserAdmin
 
-admin.site.register(District)
+
