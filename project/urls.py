@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.conf import settings
 import debug_toolbar
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
