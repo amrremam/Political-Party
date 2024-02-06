@@ -2,31 +2,31 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
+# from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, permission_required
 
 from django.contrib import messages
 
+from . decorators import unauthenticated_user, allowed_users
 from . forms import createUserForm
 
 
 # - Login
+@unauthenticated_user
 def login_view(request):
-    if request.user.is_authenticated:
-        return redirect('app:dashboard')
-    else:
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('app:dashboard')
-            else:
-                messages.info(request, 'Invalid Username or Password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('app:dashboard')
+        else:
+            messages.info(request, 'Invalid Username or Password')
 
-        return render(request, 'user/sign-in.html')
+    return render(request, 'user/sign-in.html')
 
 
 # - Logout
@@ -37,6 +37,7 @@ def logout_view(request):
 
 # - Add_new_user
 @login_required(login_url='login/')
+@allowed_users(allowed_roles=['admin'])
 def new_user(request):
     form = createUserForm()
 
