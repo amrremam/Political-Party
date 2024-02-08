@@ -6,7 +6,7 @@ app_name = 'app'
 
 urlpatterns = [
 
-    path('', index, name='dashboard'),
+    path('app/', index, name='dashboard'),
 
     path('newUser/', new_user, name='newUser'),
 

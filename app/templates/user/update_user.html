@@ -1,0 +1,508 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap JS and jQuery (required for Bootstrap features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        #MenuHeading{
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #FormDiv{
+            background-color: gainsboro;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <h2>اضافة عضو</h2>
+        <form method="post" action="{% url 'addUser:update_user' user.id %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+{#        <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">#}
+{#            <li class="nav-item waves-effect waves-light">#}
+{#                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">#}
+{#                    <h4 class="MenuHeading">العنوان تفصيلياً</h4>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li class="nav-item waves-effect waves-light">#}
+{#                <a class="nav-link" id="Personal-tab" data-toggle="tab" href="#Personal" role="tab" aria-controls="Personal" aria-selected="false">#}
+{#                    <h4 class="MenuHeading">البيانات الشخصية</h4>#}
+{#                  </a>#}
+{#            </li>#}
+{#            <li class="nav-item waves-effect waves-light">#}
+{#                <a class="nav-link" id="Political-tab" data-toggle="tab" href="#Political" role="tab" aria-controls="Political" aria-selected="false">#}
+{#                    <h4 class="MenuHeading">الموقف السياسي السابق</h4>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li class="nav-item waves-effect waves-light">#}
+{#                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">#}
+{#                  <h4 class="MenuHeading">الموقع التنظيمي الحالي داخل الحزب</h4>#}
+{#                </a>#}
+{#            </li>#}
+{#        </ul>#}
+{##}
+{#        <div class="tab-content" id="myTabContent">#}
+{#            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">#}
+{#                <div class="container rounded-lg FormDiv">#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="amana">الامانة النوعية</label>#}
+{#                            <select class="form-control" id="amana" name="amana">#}
+{#                                <option>عام</option>#}
+{#                                <option>التنظيم</option>#}
+{#                                <option>التخطيط و المتابعة</option>#}
+{#                                <option>العضوية</option>#}
+{#                                <option>الصندوق</option>#}
+{#                                <option>الإعلام</option>#}
+{#                                <option>المراسم</option>#}
+{#                                <option>الشباب</option>#}
+{#                                <option>المرأة</option>#}
+{#                                <option>العلاقات العامة</option>#}
+{#                                <option>التعليم</option>#}
+{#                                <option>الثقافة و الفنون</option>#}
+{#                                <option>العمال</option>#}
+{#                                <option>الفلاحين</option>#}
+{#                                <option>شئون المهنيين</option>#}
+{#                                <option>التدريب و التثقيف</option>#}
+{#                                <option>التنمية البشرية</option>#}
+{#                                <option>البحث العلمي و الإختراع</option>#}
+{#                                <option>الصناعةالإتصالات و تكنولوجيا المعلومات</option>#}
+{#                                <option>الشئون السياسية</option>#}
+{#                                <option>الشئون القانونية</option>#}
+{#                                <option>الشئون الصحية</option>#}
+{#                                <option>الشئون الدينية</option>#}
+{#                                <option>الشئون الرياضية</option>#}
+{#                                <option>الشئون الإقتصادية</option>#}
+{#                                <option>الشئون السياحية</option>#}
+{#                                <option>شئون البيئة</option>#}
+{#                                <option>العلاقات الخارجية</option>#}
+{#                                <option>النقل و المواصلات</option>#}
+{#                                <option>التضامن الإجتماعي</option>#}
+{#                                <option>المجالس المحلية و النيابية</option>#}
+{#                                <option>حقوق الإنسان</option>#}
+{#                                <option>اللجان النوعية المتخصصة</option>#}
+{#                                <option>التواصل الشعبي و الجماهيري</option>#}
+{#                                <option>تنمية الموارد</option>#}
+{#                                <option>المواطنة</option>#}
+{#                                <option>شئون المصريين بالخارج</option>#}
+{#                                <option>متحدي الإعاقة</option>#}
+{#                                <option>إدارة الأزمات و الكوارث</option>#}
+{#                                <option>القبائل و العائلات المصرية</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                        #}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="partyde">التفاصيل</label>#}
+{#                            <select class="form-control" id="partyde" name="partyde">#}
+{#                                <option>أمين</option>#}
+{#                                <option>مساعد أمين</option>#}
+{#                                <option>مساعد أمين عام</option>#}
+{#                                <option>أمين قطاع</option>#}
+{#                                <option>مساعد أمين قطاع</option>#}
+{#                                <option>أمين قسم</option>#}
+{#                                <option>مساعد أمين قسم</option>#}
+{#                                <option>مستشار أمين عام</option>#}
+{#                                <option>رئيس</option>#}
+{#                                <option>عضو هيئة مكتب</option>#}
+{#                                <option>مدير إداري</option>#}
+{#                                <option>مدير مكتب</option>#}
+{#                                <option>سكرتير</option>#}
+{#                                <option>خدمات عامة</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                        #}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="amanaQism">أمانة قسم</label>#}
+{#                            <select class="form-control" id="amanaQism" name="amanaQism">#}
+{#                                <option>شبرا</option>#}
+{#                                <option>الزيتون</option>#}
+{#                                <option>حدائق القبة</option>#}
+{#                                <option>الزاوية الحمراء</option>#}
+{#                                <option>الشرابية</option>#}
+{#                                <option>روض الفرج</option>#}
+{#                                <option>الساحل</option>#}
+{#                                <option>الأميرية</option>#}
+{#                                <option>مصر الجديدة</option>#}
+{#                                <option>مدينة نصر</option>#}
+{#                                <option>التجمع الخامس</option>#}
+{#                                <option>التجمع الأول</option>#}
+{#                                <option>التجمع الثالث</option>#}
+{#                                <option>النزهة</option>#}
+{#                                <option>السلام</option>#}
+{#                                <option>عين شمس</option>#}
+{#                                <option>المطرية</option>#}
+{#                                <option>المرج</option>#}
+{#                                <option>الوايلي</option>#}
+{#                                <option>باب الشعرية</option>#}
+{#                                <option>الموسكي</option>#}
+{#                                <option>الأزبكية</option>#}
+{#                                <option>الزمالك</option>#}
+{#                                <option>قصر النيل</option>#}
+{#                                <option>الدرب الأحمر</option>#}
+{#                                <option>بولاق</option>#}
+{#                                <option>منشية ناصر</option>#}
+{#                                <option>عابدين</option>#}
+{#                                <option>السيدة زينب</option>#}
+{#                                <option>الخليفة</option>#}
+{#                                <option>مصر القديمة</option>#}
+{#                                <option>المقطم</option>#}
+{#                                <option>المعادي</option>#}
+{#                                <option>البساتين</option>#}
+{#                                <option>دار السلام</option>#}
+{#                                <option>طرة</option>#}
+{#                                <option>حلوان</option>#}
+{#                                <option>التبين</option>#}
+{#                                <option>15 مايو</option>#}
+{#                                <option>المعصرة</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="amanaSheyakha">أمانة شياخة</label>#}
+{#                            <input type="text" class="form-control" id="amanaSheyakha" name="amanaSheyakha">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    #}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="amanaCairo">أمانة القاهرة</label>#}
+{#                            <select class="form-control" id="amanaCairo" name="amanaCairo">#}
+{#                                <option>القاهرة</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="amanaKetaa">أمانة قطاع</label>#}
+{#                            <select class="form-control" id="amanaKetaa" name="amanaKetaa">#}
+{#                                <option>شمال</option>#}
+{#                                <option>جنوب</option>#}
+{#                                <option>شرق</option>#}
+{#                                <option>غرب و وسط</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    #}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="Taam">تم إنضمام العضو بترشيح من</label>#}
+{#                            <input type="text" class="form-control" id="Taam" name="Taam">#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="specificLagna">لجنة متخصصة</label>#}
+{#                            <select class="form-control" id="specificLagna" name="specificLagna">#}
+{#                                <option>لجنة الطاقة</option>#}
+{#                                <option>لجنة الصحة و التعليم الطبي المستمر</option>#}
+{#                                <option>لجنة التجارة و الصناعة</option>#}
+{#                                <option>لجنة تنمية المجتمع و العمل الأهلي</option>#}
+{#                                <option>لجنة المشروعات و الإستثمار</option>#}
+{#                                <option>لجنة الزراعة و البحوث الزراعية</option>#}
+{#                                <option>لجنة الإسكان</option>#}
+{#                                <option>لجنة التنمية الإدارية</option>#}
+{#                                <option>لجنة الثقافة و الفنون</option>#}
+{#                                <option>لجنة البحث العلمي و الإبتكار</option>#}
+{#                                <option>لجنة تكنولوجيا المعلومات و الإتصالات و علوم الفضاء</option>#}
+{#                                <option>لجنة النقل و المواصلات</option>#}
+{#                                <option>لجنة التنسيق و المتابعة</option>#}
+{#                                <option>لجنة التطوير</option>#}
+{#                                <option>الطيران المدني</option>#}
+{#                                <option>حقوق الإنسان</option>#}
+{#                                <option>لجنة متابعة المشروعات الطبية</option>#}
+{#                                <option>لجنة التنمية و التواصل مع المستثمرين</option>#}
+{#                                <option>لجنة التحول الرقمي</option>#}
+{#                                <option>لجنة المصالحات</option>#}
+{#                                <option>لجنة التنمية و التمكين الإقتصادي و خلق فرص عمل</option>#}
+{#                                <option>لجنة التعليم العالي</option>#}
+{#                                <option>لجنة الإتصال السياسي و العلاقات الحكومية</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            #}
+{#            <div class="tab-pane fade" id="Political" role="tabpanel" aria-labelledby="Political-tab">#}
+{#                <div class="container rounded-lg FormDiv">#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="pastParty">حزب سياسي سبق الإنتماء له</label>#}
+{#                            <select class="form-control" id="pastParty" name="pastParty">#}
+{#                                <option>مستقبل وطن</option>#}
+{#                                <option>الوفد</option>#}
+{#                                <option>الشعب الجمهوري</option>#}
+{#                                <option>مصر الحديثة</option>#}
+{#                                <option>المؤتمر</option>#}
+{#                                <option>مصر أكتوبر</option>#}
+{#                                <option>المصريين الأحرار</option>#}
+{#                                <option>العدل</option>#}
+{#                                <option>الغد</option>#}
+{#                                <option>صوت الشعب</option>#}
+{#                                <option>مصر القوية</option>#}
+{#                                <option>الدستور</option>#}
+{#                                <option>الإصلاح و النهضة</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="manasebAamma">المناصب العامة أو التطوعية حالياً أو سابقاً</label>#}
+{#                            <input type="text" class="form-control" id="manasebAamma" name="manasebAamma">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="sanaDawra">سنة دورة عضوية المجلس</label>#}
+{#                            <input type="text" class="form-control" id="sanaDawra" name="sanaDawra">#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="odwyaSabka">عضوية سابقة في أحد المجالس المحلية أو النيابية</label>#}
+{#                            <input type="text" class="form-control" id="odwyaSabka" name="odwyaSabka">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            #}
+{#            #}
+{#            <div class="tab-pane fade" id="Personal" role="tabpanel" aria-labelledby="Personal-tab">#}
+{#                <div class="container rounded-lg FormDiv">#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="name">اسم العضو</label>#}
+{#                            <input type="text" class="form-control" id="name" name="name">#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="userImg">الصورة الشخصية للعضو</label>#}
+{#                            <input type="file" class="form-control" id="userImg" name="userImg"/>#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="presidentPartyName">اسم السيد عضو الحزب</label>#}
+{#                            <input type="text" class="form-control" id="presidentPartyName" name="presidentPartyName">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="noaaelAdwiaa">نوع العضوية</label>#}
+{#                            <select class="form-control" id="noaaelAdwiaa" name="noaaelAdwiaa">#}
+{#                                <option>عضو تنظيمي</option>#}
+{#                                <option>عضو عام</option>#}
+{#                                <option>طالب</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="famousName">اسم الشهرة إن وجد</label>#}
+{#                            <input type="text" class="form-control" id="famousName" name="famousName">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-12">#}
+{#                            <label for="NationalId">الرقم القومي</label>#}
+{#                            <input type="text" class="form-control" id="NationalId" name="NationalId">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-3">#}
+{#                            <label for="age">العمر الحالي</label>#}
+{#                            <input type="text" class="form-control" id="age" name="age">#}
+{#                        </div>#}
+{#                        <div class="col-lg-3">#}
+{#                            <label for="yearBirth">سنة الميلاد</label>#}
+{#                            <input type="text" class="form-control" id="yearBirth" name="yearBirth">#}
+{#                        </div>#}
+{##}
+{#                        <div class="col-lg-3">#}
+{#                            <label for="monthBirth">شهر</label>#}
+{#                            <input type="text" class="form-control" id="monthBirth" name="monthBirth">#}
+{#                        </div>#}
+{#                        #}
+{#                        <div class="col-lg-3">#}
+{#                            <label for="dayBirth">يوم</label>#}
+{#                            <input type="text" class="form-control" id="dayBirth" name="dayBirth">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="education">المؤهل الدراسي</label>#}
+{#                            <input type="text" class="form-control" id="education" name="education">#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="workProfession">الصفة المهنية</label>#}
+{#                            <select class="form-control" id="workProfession" name="workProfession">#}
+{#                                <option>مهندس</option>#}
+{#                                <option>دكتور</option>#}
+{#                                <option>محاسب</option>#}
+{#                                <option>أستاذ جامعي</option>#}
+{#                                <option>مدرس</option>#}
+{#                                <option>مدرب</option>#}
+{#                                <option>صحفي</option>#}
+{#                                <option>ضابط جيش</option>#}
+{#                                <option>ضابط شرطة</option>#}
+{#                                <option>أستاذ</option>#}
+{#                                <option>محامي</option>#}
+{#                                <option>مستشار قضائي</option>#}
+{#                                <option>وكيل نيابة</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="nekaba">العضو تابع لنقابة</label>#}
+{#                            <select class="form-control" id="nekaba" name="nekaba">#}
+{#                                <option>المهندسين</option>#}
+{#                                <option>المحامين</option>#}
+{#                                <option>الأطباء البشريين</option>#}
+{#                                <option>المهن الفنية التطبيقية</option>#}
+{#                                <option>المهن الموسيقية</option>#}
+{#                                <option>المهن التمثيلية</option>#}
+{#                                <option>التجاريين</option>#}
+{#                                <option>الصيادلة</option>#}
+{#                                <option>الزراعيين</option>#}
+{#                                <option>المعلمين</option>#}
+{#                                <option>السينمائيين</option>#}
+{#                                <option>العلميين</option>#}
+{#                                <option>العلاج الطبيعي</option>#}
+{#                                <option>الرياضيين</option>#}
+{#                                <option>الإعلاميين</option>#}
+{#                                <option>التمريض</option>#}
+{#                                <option>المرشدين السياحيين</option>#}
+{#                                <option>محفظي القرآن الكريم</option>#}
+{#                                <option>مستخلصي الجمارك</option>#}
+{#                                <option>المترجمين</option>#}
+{#                                <option>الأئمة و الدعاة</option>#}
+{#                                <option>الأثريين</option>#}
+{#                                <option>الجغرافيين المصرية</option>#}
+{#                                <option>الطيارين المدنيين</option>#}
+{#                                <option>العمال</option>#}
+{#                                <option>أطباء الأسنان</option>#}
+{#                                <option>الأطباء البيطريين</option>#}
+{#                                <option>الفنانين التشكيليين</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="ketaaAamel">قطاع العمل</label>#}
+{#                            <select class="form-control" id="ketaaAamel" name="ketaaAamel">#}
+{#                                <option>العقارات</option>#}
+{#                                <option>الإتصالات</option>#}
+{#                                <option>البترول</option>#}
+{#                                <option>هيئات حكومية</option>#}
+{#                                <option>الشرطة</option>#}
+{#                                <option>الجيش</option>#}
+{#                                <option>القضاء</option>#}
+{#                                <option>شركات دولية</option>#}
+{#                                <option>الدعاية و الإعلام</option>#}
+{#                                <option>البنوك</option>#}
+{#                                <option>السياحة</option>#}
+{#                                <option>الطيران</option>#}
+{#                                <option>الأطباء</option>#}
+{#                                <option>أعمال حرة</option>#}
+{#                                <option>الإستشارات</option>#}
+{#                                <option>المستشفيات</option>#}
+{#                                <option>أخرى</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="currentlyWorkProfession">الوظيفة الحالية</label>#}
+{#                            <input type="text" class="form-control" id="currentlyWorkProfession" name="currentlyWorkProfession">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="martialStatus">الحالة الإجتماعية</label>#}
+{#                            <select class="form-control" id="martialStatus" name="martialStatus">#}
+{#                                <option>متزوج</option>#}
+{#                                <option>أرمل</option>#}
+{#                                <option>أعزب</option>#}
+{#                                <option>مطلق</option>#}
+{#                            </select>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-4">#}
+{#                            <label for="mobileOne">تليفون محمول رقم 2</label>#}
+{#                            <input type="text" class="form-control" id="mobileOne" name="mobileOne">#}
+{#                        </div>#}
+{#                        <div class="col-lg-4">#}
+{#                            <label for="mobileTwo">تليفون محمول رقم 1</label>#}
+{#                            <input type="text" class="form-control" id="mobileTwo" name="mobileTwo">#}
+{#                        </div>#}
+{#                        <div class="col-lg-4">                            #}
+{#                            <label for="landline">تليفون أرضي</label>#}
+{#                            <input type="text" class="form-control" id="landline" name="landline">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-12">                            #}
+{#                            <label for="email">البريد الإليكتروني</label>#}
+{#                            <input type="text" class="form-control" id="email" name="email">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            #}
+{#            #}
+{#            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">#}
+{#                <div class="container rounded-lg FormDiv">#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="rakmElmabna">رقم المبنى</label>#}
+{#                            <input type="text" class="form-control" id="rakmElmabna" name="rakmElmabna">#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="street">اسم الشارع</label>#}
+{#                            <input type="text" class="form-control" id="street" name="street">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="district">اسم المنطقة</label>#}
+{#                            <input type="text" class="form-control" id="district" name="district">#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="city">اسم الحي</label>#}
+{#                            <input type="text" class="form-control" id="city" name="city">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="qism">قسم</label>#}
+{#                            <input type="text" class="form-control" id="qism" name="qism">#}
+{#                        </div>#}
+{#                        <div class="col-lg-6">#}
+{#                            <label for="ketaa">قطاع</label>#}
+{#                            <input type="text" class="form-control" id="ketaa" name="ketaa">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row d-flex justify-content-center text-center">#}
+{#                        <div class="col-lg-12">#}
+{#                            <label for="mohafza">محافظة</label>#}
+{#                            <input type="text" class="form-control" id="mohafza" name="mohafza">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div> #}
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="margin-top: 5%; background-color: black; width: 40%; border-radius: 20px; font-size: 20px;">حفظ</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</body>
+{% endblock body %}
+
+
+{#<h2>Update User</h2>#}
+{#<form method="post" action="{% url 'app:update_user'  %}">#}
+{#    {% csrf_token %}#}
+{#    <button type="submit">Update User</button>#}
+{#</form>#}

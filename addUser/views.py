@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.contrib import messages
+from .forms import MemberForm
 
 from .models import Member
-# from django.db import connection
+
 
 
 class AddUser(View):
@@ -13,7 +16,6 @@ class AddUser(View):
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
-        record = Member.objects.all()
         amana = request.POST.get('amana')
         partyde = request.POST.get('partyde')
         amanaQism = request.POST.get('amanaQism')
@@ -32,6 +34,7 @@ class AddUser(View):
         noaaelAdwiaa = request.POST.get('noaaelAdwiaa')
         famousName = request.POST.get('famousName')
         NationalId = request.POST.get('NationalId')
+        NationalIdImg = request.POST.get('NationalIdImg')
         age = request.POST.get('age')
         yearBirth = request.POST.get('yearBirth')
         monthBirth = request.POST.get('monthBirth')
@@ -54,14 +57,14 @@ class AddUser(View):
         ketaa = request.POST.get('ketaa')
         mohafza = request.POST.get('mohafza')
 
-        print(record)
 
         user = Member(
             name=name, amana=amana, partyde=partyde, amanaQism=amanaQism,
             amanaSheyakha=amanaSheyakha, amanaCairo=amanaCairo, amanaKetaa=amanaKetaa,
             Taam=Taam, specificLagna=specificLagna, pastParty=pastParty, manasebAamma=manasebAamma,
             sanaDawra=sanaDawra, odwyaSabka=odwyaSabka, userImg=userImg, presidentPartyName=presidentPartyName,
-            noaaelAdwiaa=noaaelAdwiaa, famousName=famousName, NationalId=NationalId, age=age, yearBirth=yearBirth,
+            noaaelAdwiaa=noaaelAdwiaa, famousName=famousName, NationalId=NationalId, NationalIdImg=NationalIdImg,
+            age=age, yearBirth=yearBirth,
             monthBirth=monthBirth, dayBirth=dayBirth, education=education, workProfession=workProfession,
             nekaba=nekaba, ketaaAamel=ketaaAamel, currentlyWorkProfession=currentlyWorkProfession,
             martialStatus=martialStatus, mobileOne=mobileOne, mobileTwo=mobileTwo, landline=landline,
@@ -73,15 +76,68 @@ class AddUser(View):
         return redirect('app:dashboard')
 
 
-
-
-
-
-
 @login_required(login_url='app:login')
 def show_user(request, *args, **kwargs):
     users = Member.objects.all()
-    print(users)
     context = {'users': users}
     return render(request, 'user/Table.html', context)
 
+
+
+
+def update_user(request, user_id):
+    user = get_object_or_404(Member, pk=user_id)
+
+    if request.method == 'POST':
+        form = MemberForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('app:dashboard')
+    else:
+        form = MemberForm(instance=user)
+
+    return render(request, 'user/update_user.html', {'form': form, 'user': user})
+
+
+
+
+def delete_user(request, user_id):
+
+    try:
+        user = get_object_or_404(Member, pk=user_id)
+
+        user.delete()
+
+        messages.success(request, "User deleted successfully.")
+
+    except Exception as e:
+        logger.error(f"Error deleting user: {e}")
+        messages.error(request, "An error occurred while deleting the user.")
+
+    return redirect('app:dashboard')
+
+
+
+def search_members(request):
+    keyword = request.GET.get('keyword', '')
+    members = Member.objects.filter(name__icontains=keyword)
+
+    data = {
+        'members': [{'name': member.name, 'email': member.email} for member in members]
+    }
+
+    return JsonResponse(data)
+
+
+
+def user_profile(request, user_id):
+    profile = get_object_or_404(Member, pk=user_id)
+
+    if request.method == 'GET':
+        form = MemberForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+    else:
+        form = MemberForm(instance=profile)
+
+    return render(request, 'user/user_profile.html', {'form': form, 'user': profile})

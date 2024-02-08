@@ -20,6 +20,7 @@ class Member(models.Model):
     noaaelAdwiaa = models.CharField(max_length=300, null=True)
     famousName = models.CharField(max_length=300, null=True, default=None)
     NationalId = models.CharField(max_length=300, null=True)
+    NationalIdImg = models.ImageField(upload_to='', null=True, blank=True)
     age = models.CharField(max_length=300, null=True)
     yearBirth = models.CharField(max_length=300, null=True)
     monthBirth = models.CharField(max_length=300, null=True)
