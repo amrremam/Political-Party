@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3da5179-36aa-4085-b181-a35cd1993799" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/addUser/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/user/update_user.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/user/user_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addUser/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addUser/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addUser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/user/NewUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/NewUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/user/Table.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/Table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/user/roles.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/roles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/user/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/user_profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +126,7 @@
       <workItem from="1707236281442" duration="13101000" />
       <workItem from="1707304340775" duration="1619000" />
       <workItem from="1707307275026" duration="15559000" />
+      <workItem from="1707401061953" duration="2535000" />
     </task>
     <servers />
   </component>

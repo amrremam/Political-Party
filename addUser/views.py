@@ -130,14 +130,24 @@ def search_members(request):
 
 
 
+# def user_profile(request, user_id):
+#     profile = get_object_or_404(Member, pk=user_id)
+#
+#     if request.method == 'GET':
+#         form = MemberForm(request.POST, instance=profile)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#         form = MemberForm(instance=profile)
+#
+#     return render(request, 'user/user_profile.html', {'form': form, 'user': profile})
+
+
+
+
 def user_profile(request, user_id):
     profile = get_object_or_404(Member, pk=user_id)
 
-    if request.method == 'GET':
-        form = MemberForm(request.POST, instance=profile)
-        if form.is_valid():
-            form.save()
-    else:
-        form = MemberForm(instance=profile)
+    form = MemberForm(instance=profile)
 
     return render(request, 'user/user_profile.html', {'form': form, 'user': profile})
