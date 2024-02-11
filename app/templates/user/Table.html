@@ -10,9 +10,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بيانات الأعضاء</title>
-    <!-- Add these lines in the head of your HTML file -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script src="https://cdn.rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 
     <style>
@@ -103,21 +105,12 @@
 
 <h1>بيانات الأعضاء</h1>
 
-{#<input type="text" class="search-bar" placeholder="البحث...">#}
-<div class="input-group">
-    <input type="text" class="form-control search-bar" placeholder="البحث..." id="search-input">
-    <div class="input-group-append">
-        <button class="btn btn-dark" type="button" onclick="searchMembers()">ابحث</button>
-    </div>
-</div>
 
-<!-- Container to display search results -->
-<div id="search-results"></div>
+<form class="form-inline my-2 my-lg-0">
+    <input type="search" class="form-control mr-sm-2" name="q" placeholder="بحث" aria-label="search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ابحث</button>
+</form>
 
-<!-- Your table goes here -->
-<table id="your-table-id">
-    <!-- Your table rows and columns -->
-</table>
 
 
 <a class="add-user-btn" href="{% url 'app:roles' %}">اضافة مستخدم جديد</a>
@@ -136,22 +129,34 @@
         </tr>
     </thead>
     <tbody>
-        {% for user in users %}
+        {% for user in data %}
             <tr>
                 <td><input type="checkbox"></td>
                 <td>{{ user.id }}</td>
                 <td><a href="{% url 'addUser:user_profile' user.id %}">{{ user.name }}</a></td>
-{#                <td>{{ user.name }}</td>#}
                 <td>{{ user.email }}</td>
                 <td>{{ user.partyde }}</td>
                 <td>{{ user.status }}</td>
                 <td>{{ user.created_at }}</td>
                 <td>
-                    <a href="{% url 'addUser:update_user' user.id %}" class="edit-btn">تحديث</a>
-                    <form method="POST" action="{% url 'addUser:delete_user' user.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="delete-btn">حذف</button>
-                    </form>
+                    {% if request.user.groups.exists %}
+                        {% with user_group=request.user.groups.first.name %}
+                            {% if user_group == 'admin' %}
+                                <a href="{% url 'addUser:update_user' user.id %}" class="edit-btn">تحديث</a>
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                
+                    {% if request.user.groups.exists %}
+                        {% with user_group=request.user.groups.first.name %}
+                            {% if user_group == 'admin' %}
+                                <form method="POST" action="{% url 'addUser:delete_user' user.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-btn">حذف</button>
+                                </form>
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}
@@ -166,34 +171,23 @@
 {#    <button class="export-btn">رؤية الأعمدة</button>#}
 </div>
 
+
 <script>
-    
-    function searchMembers() {
-        var keyword = document.getElementById('search-input').value;
+    function exportToPdf() {
+        var element = document.querySelector('table');
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '{% url 'addUser:search_members' %}?keyword=' + keyword, true);
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                document.getElementById('search-results').innerHTML = xhr.responseText;
-            }
-        };
-
-        xhr.send();
+        if (typeof html2canvas !== 'undefined') {
+            html2canvas(element).then(function(canvas) {
+                var pdf = new jsPDF();
+                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 210, 297); // A4 size: 210x297mm
+                pdf.save('exported-document.pdf');
+            });
+        } else {
+            console.error('html2canvas is not defined. Ensure the library is properly loaded.');
+        }
     }
-    
-    
-    function displaySearchResults(results) {
-    var searchResultsContainer = document.getElementById('search-results');
-    searchResultsContainer.innerHTML = '';
 
-    results.forEach(function(result) {
-        var resultElement = document.createElement('div');
-        resultElement.innerHTML = 'ID: ' + result.id + ', Name: ' + result.name + ', Email: ' + result.email;
-        searchResultsContainer.appendChild(resultElement);
-    });
-}
+    document.querySelector('.export-btn').addEventListener('click', exportToPdf);
 </script>
 
 
@@ -201,12 +195,8 @@
     function printTable() {
         window.print();
     }
-
-    function exportToPdf() {
-        var element = document.getElementById('table-container');
-        html2pdf(element);
-    }
-
+    
+    
     function exportToCsv() {
         var csvContent = "data:text/csv;charset=utf-8,";
         var rows = document.querySelectorAll('table tr');
