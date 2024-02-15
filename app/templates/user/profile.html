@@ -1,0 +1,307 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .profile-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden; /* Clear the float */
+        }
+
+        .profile-picture {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .field {
+            margin-top: 10px;
+            width: 48%; /* Set width to less than 50% to ensure two fields fit in the same row */
+            box-sizing: border-box;
+            float: left; /* Float left for odd-numbered fields */
+            text-align: right; /* Align text to the right */
+        }
+
+        .field:nth-child(even) {
+            float: right; /* Float right for even-numbered fields */
+        }
+
+        .field label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .field p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .buttons-container {
+            margin-top: 20px;
+            text-align: center;
+            clear: both; /* Clear the float for button alignment */
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .edit-button {
+            background-color: green;
+            color: white;
+        }
+
+        .delete-button {
+            background-color: red;
+            color: white;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .profile-container {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .field {
+                width: 100%;
+                float: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+{#        <img class="profile-picture" src="{{ user.userImg|default:"لا يوجد" }}" alt="Profile Picture">#}
+        <div class="profile-picture-container">
+        <img class="profile-picture" src="{{ user.userImg|default:'' }}" alt="Profile Picture">
+        </div>
+        
+        <div class="fields-row">
+            <div class="field">
+                    <label for="field1">الاسم</label>
+                    <p id="field1">{{ user.name }}</p>
+            </div>
+            <div class="field">
+                <label for="field2">اسم الشهرة إن وجد</label>
+                <p id="field2">{{ user.famousName|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field3">نوع العضوية</label>
+                <p id="field2">{{ user.noaaelAdwiaa|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field4">الرقم القومي</label>
+                <p id="field2">{{ user.NationalId|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field5">تاريخ الميلاد</label>
+                <p id="field2">{{ user.dayBirth|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field6">الصفة المهنية</label>
+                <p id="field2">{{ user.odwyaSabka|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field7">المؤهل الدراسي</label>
+                <p id="field2">{{ user.education|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field8">العضو تابع لنقابة:</label>
+                <p id="field2">{{ user.nekaba|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field9">المؤهل الدراسي</label>
+                <p id="field2">{{ user.education|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field10">الوظيفة الحالية</label>
+                <p id="field2">{{ user.currentlyWorkProfession|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field11">قطاع العمل</label>
+                <p id="field2">{{ user.ketaaAamel|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field12">الحالة الإجتماعية</label>
+                <p id="field2">{{ user.martialStatus|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field13">قطاع العمل</label>
+                <p id="field2">{{ user.ketaaAamel|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field14">تليفون أرضي</label>
+                <p id="field2">{{ user.landline|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field15">تليفون محمول رقم 1</label>
+                <p id="field2">{{ user.mobileOne|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field16">تليفون محمول رقم 2</label>
+                <p id="field2">{{ user.mobileTwo|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field17">البريد الإليكتروني</label>
+                <p id="field2">{{ user.email|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field18">اسم الشارع</label>
+                <p id="field2">{{ user.street|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field19">رقم المبنى</label>
+                <p id="field2">{{ user.district|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field20">اسم الحي</label>
+                <p id="field2">{{ user.city|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field21">اسم المنطقة</label>
+                <p id="field2">{{ user.district|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field22">قطاع</label>
+                <p id="field2">{{ user.ketaa|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field23">قسم</label>
+                <p id="field2">{{ user.qism|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field24">محافظة</label>
+                <p id="field2">{{ user.mohafza|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field25">الصفة الحزبية</label>
+                <p id="field25">Dummy Text 25</p>
+            </div>
+            <div class="field">
+                <label for="field26">الأمانة النوعية</label>
+                <p id="field2">{{ user.amana|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field27">أمانة شياخة</label>
+                <p id="field2">{{ user.amanaSheyakha|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field28">أمانة قسم</label>
+                <p id="field2">{{ user.amanaQism|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field29">أمانة قطاع</label>
+                <p id="field2">{{ user.amanaKetaa|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field30">أمانة القاهرة</label>
+                <p id="field2">{{ user.amanaCairo|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field31">لجنة متخصصة</label>
+                <p id="field2">{{ user.specificLagna|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field32">تم إنضمام العضو بترشيح من</label>
+                <p id="field2">{{ user.Taam|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field33">لمناصب العامة أو التطوعية حالياً أو سابقاً</label>
+                <p id="field2">{{ user.manasebAamma|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field34">حزب سياسي سبق الإنتماء له</label>
+                <p id="field2">{{ user.pastParty|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        <div class="fields-row">
+            <div class="field">
+                <label for="field35">عضوية سابقة في أحد المجالس المحلية أو النيابية</label>
+                <p id="field2">{{ user.odwyaSabka|default:"لا يوجد" }}</p>
+            </div>
+            <div class="field">
+                <label for="field36">سنة دورة عضوية المجلس</label>
+                <p id="field2">{{ user.sanaDawra|default:"لا يوجد" }}</p>
+            </div>
+        </div>
+        
+        <!-- Add more fields as needed -->
+{##}
+{#        <div class="buttons-container">#}
+{#            <button class="button edit-button">Edit</button>#}
+{#            <button class="button delete-button">Delete</button>#}
+{#            <button class="button" onclick="goBack()">Back</button>#}
+{#        </div>#}
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
+{% endblock body %}

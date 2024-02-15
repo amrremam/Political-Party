@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3da5179-36aa-4085-b181-a35cd1993799" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addUser/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addUser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/user/Table.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/Table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addUser/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addUser/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/addUser/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guest/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/guest/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guest/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/guest/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guest/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/guest/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guest/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +59,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/DJP/Political/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/erora/Django.txt&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -130,7 +135,9 @@
       <workItem from="1707304340775" duration="1619000" />
       <workItem from="1707307275026" duration="15559000" />
       <workItem from="1707401061953" duration="2588000" />
-      <workItem from="1707608196061" duration="5709000" />
+      <workItem from="1707608196061" duration="6198000" />
+      <workItem from="1707684512229" duration="4073000" />
+      <workItem from="1707738122804" duration="8011000" />
     </task>
     <servers />
   </component>

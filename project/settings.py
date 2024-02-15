@@ -1,4 +1,3 @@
-from dj_database_url import parse as dburl
 from decouple import config
 from pathlib import Path
 import os
@@ -131,8 +130,12 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/static_file/img')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/static_file/img')
+# MEDIA_URL = '/media/'
+
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -158,4 +161,3 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.redirects.RedirectsPanel',
     'debug_toolbar.panels.profiling.ProfilingPanel',
 ]
-

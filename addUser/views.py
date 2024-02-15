@@ -3,7 +3,7 @@ from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MemberForm
-from app.decorators import allowed_users, unauthenticated_user
+from app.decorators import allowed_users
 from django.db.models import Q
 
 
@@ -35,7 +35,6 @@ class AddUser(View):
         user.save()
 
         return redirect('addUser:show_user')
-
 
 
 # - Read
@@ -104,6 +103,4 @@ def user_profile(request, user_id):
 
     form = MemberForm(instance=profile)
 
-    return render(request, 'user/user_profile.html', {'form': form, 'user': profile})
-
-
+    return render(request, 'user/profile.html', {'form': form, 'user': profile})

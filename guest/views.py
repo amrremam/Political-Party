@@ -1,22 +1,22 @@
 from django.shortcuts import render
-from guest.models import Guest, Admin
+from guest.models import Author, Post
 from django.db import connection
 from django.db.models import Q
 
 
-def guest_list(request):
-    guests = Guest.objects.all()
-    print(guests)
+# def guest_list(request):
+#     guests = Guest.objects.all()
+#     print(guests)
     # print(connection.queries)
-    return render(request, 'index.html', {'guest': guests})
+    # return render(request, 'index.html', {'guest': guests})
 
 
-def guest_all(request):
-    guests = Guest.objects.filter(Q(Lname__startswith='awel') | Q(Lname__startswith='Ftalet') | ~Q
-    (Lname__startswith='samiir'))
-    print(guests)
+# def guest_all(request):
+#     guests = Guest.objects.filter(Q(Lname__startswith='awel') | Q(Lname__startswith='Ftalet') | ~Q
+#     (Lname__startswith='samiir'))
+#     print(guests)
     # print(connection.queries)
-    return render(request, 'index.html', {'guest': guests})
+    # return render(request, 'index.html', {'guest': guests})
 
 
 # def guest_all(request):
@@ -26,3 +26,14 @@ def guest_all(request):
     # print(guests)
     # print(connection.queries)
     # return render(request, 'index.html', {'guest': guests})
+
+
+
+def guest_all(request):
+    # guests = Post.objects.all()
+    guests = Post.objects.select_related('author').all()
+    # guests = Post.objects.select_related('author').filter(author__fName__startswith='messi')
+    data = [n.author.fName for n in guests]
+
+    print(guests)
+    return render(request, 'index.html', {'guests': data})

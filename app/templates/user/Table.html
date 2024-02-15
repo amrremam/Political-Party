@@ -123,7 +123,7 @@
             <th>الاسم</th>
             <th>البريد الإلكتروني</th>
             <th>الدور</th>
-            <th>الحالة</th>
+            <th>العضو تابع لنقابة</th>
             <th>تاريخ الإنشاء</th>
             <th>الإجراءات</th>
         </tr>
@@ -136,7 +136,7 @@
                 <td><a href="{% url 'addUser:user_profile' user.id %}">{{ user.name }}</a></td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.partyde }}</td>
-                <td>{{ user.status }}</td>
+                <td>{{ user.nekaba }}</td>
                 <td>{{ user.created_at }}</td>
                 <td>
                     {% if request.user.groups.exists %}
